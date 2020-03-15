@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/3da1a747b2.js" crossorigin="anonymous"></script>
+    <title>PassWord Gen</title>
+    <style>
+      .bg-RP {
+          background-color:#007cae;     
+         }
+  </style>
+</head>
+<body>
+
+<!--Navbar Start-->
+<nav class="container-fluid bg-RP">
+  <div class="navbar container mb-3 navbar-expand-lg navbar-dark bg-RP">
+  
+      <a class="navbar-brand" href="index.html">RIPortfolios</a>
+      
+      
+      <button 
+          class="navbar-toggler" 
+          type="button" 
+          data-toggle="collapse" 
+          data-target="#navbarSupportedContent" 
+          aria-controls="navbarSupportedContent" 
+          aria-expanded="false" 
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+  
+
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+          <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+      
+          <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+          <a class="nav-link" href="#front-end">FrontEnd Projects <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="#back-end">BackEnd Projects</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="Login.html">Login</a>
+          </li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" 
+              href="#" 
+              id="navbarDropdown" 
+              role="button" 
+              data-toggle="dropdown" 
+              aria-haspopup="true" 
+              aria-expanded="false">
+              Lets Connect
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="ContactUs.html">Contact us</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="about.html">About</a>
+          </div>
+          </li>
+      </ul>
+      </div>
+    </div>
+  </nav> 
+<!--Navbar end-->
+
+<!--Side Navbar Start-->
+<div class="row">
+    <nav id="time&date" class="col-12 col-md-3" >      
+        <!-- Start - clock on the side bar -->
+        <p class="">Time w/Moment.js</p>
+        <div id="date"></div>
+        <div id="clock"></div>
+        <div id="calendar-container">
+            <div id="calendar-header">
+                <span id="calendar-month-year"></span>
+            </div>
+            <div id="calendar-dates">
+            </div>
+        </div>
+    </nav>
+    <div class="col-12 col-md-9">
+        <header class="jumbotron bg-light"> <!--Portfolio Header start-->
+               <!--Portfolio Header row start-->
+                  <h1 class="display-4">Daily Activity Planner</h1> 
+              <!--Portfolio Header row end-->
+        </header> <!--Portfolio Header end-->
+
+
+        <main id="planner" class="container mt-5">      
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-lg">08:00 am</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="hour-index-8"  placeholder="To-do tasks">
+                <button class="btn btn-outline-secondary dropdown-toggle alert-warning" id="btn-index-8" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                <div class="dropdown-menu" id="08">
+                    <option class="dropdown-item" id="action-s-08" href="#" value="1">Save</option>
+                    <option class="dropdown-item" id="action-d-08" href="#" value="2">Done</option>
+                    <option class="dropdown-item" id="action-nd-08" href="#" value="3">Not Done</option>
+                </div>
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-lg">09:00 am</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="hour-index-9"  placeholder="To-do tasks">
+                <button class="btn btn-outline-secondary dropdown-toggle alert-warning" id="btn-index-9" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                <div class="dropdown-menu" id="09">
+                    <option class="dropdown-item" id="action-s-09" href="#" value="1">Save</option>
+                    <option class="dropdown-item" id="action-d-09" href="#" value="2">Done</option>
+                    <option class="dropdown-item" id="action-nd-09" href="#" value="3">Not Done</option>
+                </div>
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-lg">10:00 am</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="hour-index-10" placeholder="To-do tasks">
+                <button class="btn btn-outline-secondary dropdown-toggle alert-warning" id="btn-index-10" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                <div class="dropdown-menu" id="10">
+                    <option class="dropdown-item" id="action-s-10" href="#" value="1">Save</option>
+                    <option class="dropdown-item" id="action-d-10" href="#" value="2">Done</option>
+                    <option class="dropdown-item" id="action-nd-10" href="#" value="3">Not Done</option>
+                </div>
+            </div>         
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-lg">11:00 am</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="hour-index-11"  placeholder="To-do tasks">
+                <button class="btn btn-outline-secondary dropdown-toggle alert-warning" id="btn-index-11" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                <div class="dropdown-menu" id="11">
+                    <option class="dropdown-item" id="action-s-11" href="#" value="1">Save</option>
+                    <option class="dropdown-item" id="action-d-11" href="#" value="2">Done</option>
+                    <option class="dropdown-item" id="action-nd-11" href="#" value="3">Not Done</option>
+                </div>
+            </div>            
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-lg">12:00 pm</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="hour-index-12"  placeholder="To-do tasks">
+                <button class="btn btn-outline-secondary dropdown-toggle alert-warning" id="btn-index-12" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                <div class="dropdown-menu" id="12">
+                    <option class="dropdown-item" id="action-s-12" href="#" value="1">Save</option>
+                    <option class="dropdown-item" id="action-d-12" href="#" value="2">Done</option>
+                    <option class="dropdown-item" id="action-nd-12" href="#" value="3">Not Done</option>
+                </div>
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-lg">01:00 pm</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="hour-index-13"  placeholder="To-do tasks">
+                <button class="btn btn-outline-secondary dropdown-toggle alert-warning" id="btn-index-13" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                <div class="dropdown-menu" id="13">
+                    <option class="dropdown-item" id="action-s-13" href="#" value="1">Save</option>
+                    <option class="dropdown-item" id="action-d-13" href="#" value="2">Done</option>
+                    <option class="dropdown-item" id="action-nd-13" href="#" value="3">Not Done</option>
+                </div>
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-lg">02:00 pm</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  id="hour-index-14"  placeholder="To-do tasks">
+                <button class="btn btn-outline-secondary dropdown-toggle alert-warning" id="btn-index-14" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                <div class="dropdown-menu" id="14">
+                    <option class="dropdown-item" id="action-s-14" href="#" value="1">Save</option>
+                    <option class="dropdown-item" id="action-d-14" href="#" value="2">Done</option>
+                    <option class="dropdown-item" id="action-nd-14" href="#" value="3">Not Done</option>
+                </div>
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-lg">03:00 pm</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  id="hour-index-15"  placeholder="To-do tasks">
+                <button class="btn btn-outline-secondary dropdown-toggle alert-warning" id="btn-index-15" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                <div class="dropdown-menu" id="15">
+                    <option class="dropdown-item" id="action-s-15" href="#" value="1">Save</option>
+                    <option class="dropdown-item" id="action-d-15" href="#" value="2">Done</option>
+                    <option class="dropdown-item" id="action-nd-15" href="#" value="3">Not Done</option>
+                </div>
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-lg">04:00 pm</span>
+                </div>
+                <input type="text" class="form-control alret-warning" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  id="hour-index-16" placeholder="To-do tasks">
+                <button class="btn btn-outline-secondary dropdown-toggle alert-warning" id="btn-index-16" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                <div class="dropdown-menu" id="16">
+                    <option class="dropdown-item" id="action-s-16" href="#" value="1">Save</option>
+                    <option class="dropdown-item" id="action-d-16" href="#" value="2">Done</option>
+                    <option class="dropdown-item" id="action-nd-16" href="#" value="3">Not Done</option>
+                </div>
+            </div>
+ 
+        <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+        <script type="text/javascript">            
+            function updateTime() {
+                const now = moment();
+                const humanReadable = now.format("hh:mm:ssa");
+                $('#clock').text(humanReadable);
+            };
+            setInterval(updateTime,1000);
+        
+        // end - clock on the side bar 
+        
+        
+        window.onload = function(){
+        //$(document).ready(function() { 
+            var d = moment();
+            var date = d.format("MMMM Do YYYY");
+            var month_name = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+            var month = d.month();   //0-11
+            var year = d.year(); //2020
+            var first_date = month_name[month] + " " + 1 + " " + year;
+            //September 1 2014
+            var tmp = d.format("ddd MMM DD YYYY");
+            //Mon Sep 01 2014 ...
+            var first_day = tmp.substring(0, 3);    //Mon
+            var day_name = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+            var day_no = day_name.indexOf(first_day);   //1
+            var days = d.daysInMonth();    //30
+            //Tue Sep 30 2014 ...
+            //console.log(days);
+
+            var calendar = get_calendar(day_no, days);
+            //console.log(calendar)
+            //onsole.log(month_name[month]+" "+year)
+            $('#calendar-month-year').text(month_name[month]+" "+year);
+            $('#calendar-dates').append(calendar);
+            $('#date').append(date);
+            //ide Navbar End
+
+                // get times from moment
+                const now = moment().format('MMMM Do YYYY');
+
+                // commented out for test in non-standard hours
+                let nowHour24 = moment().format('H');
+                let nowHour12 = moment().format('h');
+                
+                // using font awesome icon https://fontawesome.com/license
+                // change description here - none
+                const saveIcon = "./images/save-regular.svg"; 
+
+                // Get stored todos from localStorage
+                // Parsing the JSON string to an object
+                let storedPlans = JSON.parse(localStorage.getItem("storedPlans"));
+                let actionRegister = JSON.parse(localStorage.getItem("storedActivies"));
+
+                // If plans were retrieved from localStorage, update the plan array to it
+                if (storedPlans !== null) {
+                    planTextArr = storedPlans;
+                } else {
+                    // this should only occur on first time the app is loaded in the browser
+                    // helpfully remind user that lunch is important
+                    planTextArr = new Array(9);
+                    planTextArr[5] = "Picnic lunch outside (lunch is important!)";
+                }
+                // build calendar by row for fix set of hours
+                for (let hour = 8; hour <= 16; hour++) {
+                    // index for array use offset from hour
+                    let index = hour - 8;
+            
+                    // clear existing elements
+                    $("input[id^='hour-index']").empty();
+
+                    // access index from data array for hour 
+                    let test = $("#hour-index-" + hour)
+                    //console.log($("#hour-index-" + hour))
+                    $("#hour-index-" + hour).val( planTextArr[index] );
+                    
+                    colorAction(actionRegister);
+                    // if ( hour < nowHour24) {
+                    // // $hourRow.css('')
+                    // $("#hour-index-" + hour).addClass("alert-dark")
+                    // } else if ( hour > nowHour24) { 
+                    // $("#hour-index-" + hour).addClass("alert-light")
+                    // } else {
+                    // $("#hour-index-" + hour).addClass("alert-warning")
+                    // }
+                };
+
+                // saves to local storage
+                // conclick function to listen for user clicks on plan area
+                actionRegister = new Array(9);
+                
+                $(document).on('click','.dropdown-menu option', function(event) {
+                    event.preventDefault();  
+
+                    let $index = $(this).attr('id').slice(-2);
+                    console.log($index) //16
+                    let inputId = '#hour-index-'+$index;
+                    console.log(inputId)
+                    let value = $(inputId).val()
+                    console.log(value)
+                    let inputIdd = '#btn-index-'+$index;
+                    console.log(inputIdd)
+
+                    
+                    //console.log(value);
+                    //console.log(planTextArr)
+                    //console.log($('.dropdown-toggle').dropdown())
+                    
+                    
+                    var opt = $(this)[0].value;
+                    console.log(opt);
+                    var $index2 = parseInt($index)-8;
+                    console.log($index2);
+                    
+                    planTextArr[$index2] = value;
+                    actionRegister[$index2] = opt;
+                        
+                    console.log(actionRegister)
+                    console.log(opt);
+
+                    
+
+                    // remove shawdow pulse class
+                    // $(inputIdd).removeClass("alert-warning");
+                    // $(inputIdd).addClass("alert-success");
+                    colorAction(actionRegister);
+                    localStorage.setItem("storedPlans", JSON.stringify(planTextArr));
+                    localStorage.setItem("storedActivies", JSON.stringify(actionRegister));
+                });  
+              
+                // function to color save button on change of input
+                $(document).on('change','input', function(event) {
+                    event.preventDefault();  
+                    //if (test) { console.log('onChange'); }
+                    //if (test) { console.log('id', $(this).attr('hour-index')); }
+
+                    // neeed to check for save button
+
+                    let i = $(this).attr('hour-index');
+
+                    // add shawdow pulse class
+                    $(`#saveid-${i}`).addClass('shadowPulse');
+
+                });
+            };
+
+            function colorAction(statusArray) {
+                    console.log(statusArray)
+                statusArray.forEach(function(item,index) {
+                    
+                    console.log(index)
+                    console.log(item)
+                    console.log(item==="1")
+                    console.log( moment().format('H'))
+                    index1 = index + 8
+                    let inputIdd = '#btn-index-'+ index1;
+                    let inputId = '#hour-index-'+ index1;
+                    console.log(inputIdd);
+                    console.log(inputId);
+                    console.log( moment().format('H'))
+                    if (item==="1") {
+                        $(inputIdd).removeClass("alert-warning alert-danger alert-primary alert-success");
+                        $(inputIdd).addClass("alert-primary");
+                        $(inputIdd).text("Saved")
+                        $(inputId).removeClass("alert-warning alert-danger alert-primary alert-success");
+                        $(inputId).addClass("alert-primary");
+                    } else if (item==="2") { 
+                        $(inputIdd).removeClass("alert-warning alert-danger alert-primary alert-success");
+                        $(inputIdd).addClass("alert-success");
+                        $(inputIdd).text("Done")
+                        $(inputId).removeClass("alert-warning alert-danger alert-primary alert-success");
+                        $(inputId).addClass("alert-success");
+                    } else if (item==="3") { 
+                        $(inputIdd).removeClass("alert-warning alert-danger alert-primary alert-success");
+                        $(inputIdd).addClass("alert-danger");
+                        $(inputIdd).text("To do")
+                        $(inputId).removeClass("alert-warning alert-danger alert-primary alert-success");
+                        $(inputId).addClass("alert-danger");
+                    }
+                    
+                    if ( index1 <  moment().format('H')) {
+                            // $hourRow.css('')
+                            $(inputId).addClass("alert-dark")
+                            } 
+                });
+            }
+
+            function get_calendar(day_no, days){
+            var table = $('<table>');
+            var tr = $('<tr>');
+            
+            //row for the day letters
+            for(var c=0; c<=6; c++){
+                var td = $("<td>");
+                //console.log(td)
+                td.text("SMTWTFS"[c]);
+                tr.append(td);
+                //console.log(tr)
+            }
+            table.append(tr);
+            //console.log(table)
+            
+            //create 2nd row
+            tr = $('<tr>');
+            var c;
+            for(c=0; c<=6; c++){
+                if(c == day_no){
+                    break;
+                }
+                var td = $('<td>');
+                td.text("");
+                tr.append(td);
+            }
+            
+            var count = 1;
+            for(c=0; c<=6; c++){
+                var td = $('<td>');
+                td.text = count;
+                count++;
+                tr.append(td);
+            }
+            table.append(tr);
+            
+            //rest of the date rows
+            for(var r=3; r<=7; r++){
+                tr = $('<tr>');
+                for(var c=0; c<=6; c++){
+                    if(count > days){
+                        table.append(tr);
+                        return table;
+                    }
+                    td = $('<td>');
+                    td.text(count);
+                    count++;
+                    tr.append(td);
+                }
+                table.append(tr);
+                //console.log(table)
+            }
+            
+            return table;
+         }
+    
+        
+          </script>
+        </main>
+    </div>
+</div>
+  <footer class="container-fluid mt-5 bg-RP text-dark">
+    <div class="container">
+        <div class="row mb-0 text-left py-5"> <!--Portfolio footer start-->
+            <div class="col py-5 px-0">
+            <h1 class="display-5">R-Innovative Protfolios</h1>
+
+            <ul class="list-group list-group-flush bg-RP text-dark">
+                <li class="list-group-item font-weight-bold bg-RP text-light">Raed</li>
+                <li class="list-group-item bg-RP text-light">Raed Fun Protfolios</li>
+            </ul>
+            </div>
+        </div>  <!--Portfolio footer end--> 
+    </div>
+  </footer>
+  
+
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+   
+    
+    
+</body>
+   
+</html>
