@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/3da1a747b2.js" crossorigin="anonymous"></script>
-    <title>PassWord Gen</title>
+    <title>Daily planner</title>
     <style>
       .bg-RP {
           background-color:#007cae;     
@@ -73,31 +73,33 @@
     </div>
   </nav> 
 <!--Navbar end-->
-
-<!--Side Navbar Start-->
-<div class="row">
-    <nav id="time&date" class="col-12 col-md-3" >      
-        <!-- Start - clock on the side bar -->
-        <p class="">Time w/Moment.js</p>
-        <div id="date"></div>
-        <div id="clock"></div>
-        <div id="calendar-container">
-            <div id="calendar-header">
-                <span id="calendar-month-year"></span>
+<main id="planner" class="container mt-5">  
+<!--Side left Navbar Start-->
+    <div class="row">
+        <nav  class="col-12 col-md-3" id="time&date">      
+            <!-- Start - clock on the side bar -->
+            <p class="">Time w/Moment.js</p>
+            <div id="date"></div>
+            <div id="clock"></div>
+            <div class="my-5" id="calendar-container">
+                <div id="calendar-header">
+                    <span id="calendar-month-year"></span>
+                </div>
+                    <div id="calendar-dates"></div>
             </div>
-            <div id="calendar-dates">
-            </div>
-        </div>
-    </nav>
-    <div class="col-12 col-md-9">
-        <header class="jumbotron bg-light"> <!--Portfolio Header start-->
-               <!--Portfolio Header row start-->
-                  <h1 class="display-4">Daily Activity Planner</h1> 
-              <!--Portfolio Header row end-->
-        </header> <!--Portfolio Header end-->
+        </nav>
+<!--Side left Navbar End-->
 
 
-        <main id="planner" class="container mt-5">      
+        <div class="col-12 col-md-9">
+            <header class="jumbotron bg-light"> <!--Planner Header start-->
+                    <h1 class="display-4">Daily Activity Planner</h1> 
+            </header> <!--Planner Header end-->
+
+
+        <!-- Event planner Main -->
+
+            
             <div class="input-group input-group-lg">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroup-sizing-lg">08:00 am</span>
@@ -239,7 +241,7 @@
             var days = d.daysInMonth();    //number of days in the current month i.e. 30
             var dayOfmonth = d.format("DD");
             //console.log(dayOfmonth);
-            firstdayOfmonth = dayOfmonth%7- 1 - day_no
+            let firstdayOfmonth = dayOfmonth%7- 1 - day_no
             //console.log({firstdayOfmonth})
             //Tue Sep 30 2014 ...
             //console.log(days);
