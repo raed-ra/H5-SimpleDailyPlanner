@@ -1,8 +1,46 @@
 
-/* #calendar-container{
+
+
+.title{
+padding: 10px;
+width: 210px;
+height: 50px;
+text-align: center;
+border: 1px solid #eee;
+border-radius: 10px;
+font-size: 22px;
+font-family: Arial;
+background-image: linear-gradient(#fff, #d3d3d3);
+}
+#date {
     padding: 10px;
     width: 210px;
-    height: 240px;
+    height: 50px;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: Arial;
+    background-image: linear-gradient(#fff, #d3d3d3);
+}
+
+#clock {
+    padding: 10px;
+    width: 210px;
+    height: 50px;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: Arial;
+    background-image: linear-gradient(#fff, #d3d3d3);
+}
+
+
+#calendar-container{
+    padding: 10px;
+    width: 210px;
+    height: 260px;
     text-align: center;
     border: 1px solid #eee;
     border-radius: 10px;
@@ -22,4 +60,4 @@
 
 #calendar-dates>table>tr>td{
     padding: 5px;
-} */
+}

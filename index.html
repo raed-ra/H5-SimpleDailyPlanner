@@ -78,7 +78,7 @@
     <div class="row">
         <nav  class="col-12 col-md-3" id="time&date">      
             <!-- Start - clock on the side bar -->
-            <p class="">Time w/Moment.js</p>
+            <p class="title">Time w/Moment.js</p>
             <div id="date"></div>
             <div id="clock"></div>
             <div class="my-5" id="calendar-container">
@@ -91,9 +91,9 @@
 <!--Side left Navbar End-->
 
 
-        <div class="col-12 col-md-9">
-            <header class="jumbotron bg-light"> <!--Planner Header start-->
-                    <h1 class="display-4">Daily Activity Planner</h1> 
+        <div class="col-12 col-md-9"> <!--Planner Header start-->
+            <header class="jumbotron bg-light" style="padding-top:10%; padding-bottom:10%"> 
+                    <h1 class="display-5" style="height:20px ">Daily Activity Planner</h1> 
             </header> <!--Planner Header end-->
 
 
@@ -112,6 +112,9 @@
                     <option class="dropdown-item" id="action-nd-08" href="#" value="3">Not Done</option>
                 </div>
             </div>
+
+            <br/>
+            
             <div class="input-group input-group-lg">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroup-sizing-lg">09:00 am</span>
@@ -124,6 +127,9 @@
                     <option class="dropdown-item" id="action-nd-09" href="#" value="3">Not Done</option>
                 </div>
             </div>
+
+            <br/>
+
             <div class="input-group input-group-lg">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroup-sizing-lg">10:00 am</span>
@@ -135,7 +141,10 @@
                     <option class="dropdown-item" id="action-d-10" href="#" value="2">Done</option>
                     <option class="dropdown-item" id="action-nd-10" href="#" value="3">Not Done</option>
                 </div>
-            </div>         
+            </div>    
+            
+            <br/>
+            
             <div class="input-group input-group-lg">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroup-sizing-lg">11:00 am</span>
@@ -147,7 +156,10 @@
                     <option class="dropdown-item" id="action-d-11" href="#" value="2">Done</option>
                     <option class="dropdown-item" id="action-nd-11" href="#" value="3">Not Done</option>
                 </div>
-            </div>            
+            </div>  
+
+            <br/>
+            
             <div class="input-group input-group-lg">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroup-sizing-lg">12:00 pm</span>
@@ -160,6 +172,9 @@
                     <option class="dropdown-item" id="action-nd-12" href="#" value="3">Not Done</option>
                 </div>
             </div>
+
+            <br/>
+
             <div class="input-group input-group-lg">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroup-sizing-lg">01:00 pm</span>
@@ -172,6 +187,9 @@
                     <option class="dropdown-item" id="action-nd-13" href="#" value="3">Not Done</option>
                 </div>
             </div>
+
+            <br/>
+
             <div class="input-group input-group-lg">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroup-sizing-lg">02:00 pm</span>
@@ -184,6 +202,9 @@
                     <option class="dropdown-item" id="action-nd-14" href="#" value="3">Not Done</option>
                 </div>
             </div>
+
+            <br/>
+
             <div class="input-group input-group-lg">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroup-sizing-lg">03:00 pm</span>
@@ -196,6 +217,9 @@
                     <option class="dropdown-item" id="action-nd-15" href="#" value="3">Not Done</option>
                 </div>
             </div>
+
+            <br/>
+            
             <div class="input-group input-group-lg">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroup-sizing-lg">04:00 pm</span>
@@ -230,11 +254,11 @@
             var year = d.year(); //2020
             var first_date = month_name[month] + " " + 1 + " " + year;
             //September 1 2014
-            var dateID = d.format("ddd MMM DD YYYY");
-            //console.log(dateID);
+            var todayDate = d.format("ddd MMM DD YYYY");
+            //console.log(todayDate);
 
             //Mon Sep 01 2014 ...
-            var first_day = dateID.substring(0, 3);    //Mon
+            var first_day = todayDate.substring(0, 3);    //Mon
             //console.log(first_day)
             var day_name = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
             var day_no = day_name.indexOf(first_day);   //gives the index of current day in the array 
@@ -242,13 +266,7 @@
             var dayOfmonth = d.format("DD");
             //console.log(dayOfmonth);
             let firstdayOfmonth = dayOfmonth%7- 1 - day_no
-            //console.log({firstdayOfmonth})
-            //Tue Sep 30 2014 ...
-            //console.log(days);
-            //console.log(day_no)
             var calendar = get_calendar(firstdayOfmonth, days, dayOfmonth);
-            //console.log(calendar)
-            //onsole.log(month_name[month]+" "+year)
             $('#calendar-month-year').text(month_name[month]+" "+year);
             $('#calendar-dates').append(calendar);
             $('#date').append(date);
@@ -265,60 +283,40 @@
 
                 // Get stored todos from localStorage
                 // Parsing the JSON string to an object
-                
-                let registereddateID = JSON.parse(localStorage.getItem("plannerDate"));
-                if (registereddateID == dateID) { 
+                let registeredtodayDate = JSON.parse(localStorage.getItem("plannerDate"));
+
+                if (registeredtodayDate == todayDate && storedPlans!=null && actionRegister!=null) { 
                     storedPlans = JSON.parse(localStorage.getItem("storedPlans"));
                     actionRegister = JSON.parse(localStorage.getItem("storedActivies"));
-
                 } else {
-                    storedPlans = null
-                    actionRegister = null
+                    storedPlans = new Array(9).fill(null);
+                    storedPlans[5] = "Recommended! Picnic lunch outside (lunch is important!)";
+                    actionRegister = new Array(9).fill(null);
                 }
-                // If plans were retrieved from localStorage, update the plan array to it
-                if (storedPlans !== null) {
-                    planTextArr = storedPlans;
-                } else {
-                    // this should only occur on first time the app is loaded in the browser
-                    // helpfully remind user that lunch is important
-                    planTextArr = new Array(9);
-                    planTextArr[5] = "Recommended! Picnic lunch outside (lunch is important!)";
-                }            
+    
+         
                 // build calendar by row for fix set of hours
                 for (let hour = 8; hour <= 16; hour++) {
                     // index for array use offset from hour
-                    let index = hour - 8;
-            
+                    let index = hour - 8
                     // clear existing elements
                     $("#hour-index-" + hour).empty();
-        
                     // access index from data array for hour 
-
-                    $("#hour-index-" + hour).val( planTextArr[index] );
-
+                    $("#hour-index-" + hour).val( storedPlans[index] );
                 };
-                if (actionRegister !== null) {
-                    planActionArr = actionRegister;
-                } else {
-                    // this should only occur on first time the app is loaded in the browser
-                    // helpfully remind user that lunch is important
-                    planActionArr = new Array(9);
-                }
-                colorAction(planActionArr);
-                // saves to local storage
-                // conclick function to listen for user clicks on plan area
-              
+       
+                colorAction(actionRegister);
+                // onclick function to listen for user clicks on plan area
                 $(document).on('click','.dropdown-menu option', function(event) {
                     event.preventDefault();  
-
+                    let planTextArr = new Array(9).fill(null);
+                    let planActionArr = new Array(9).fill(null);
                     let $index = $(this).attr('id').slice(-2);
                     console.log($index) //16
                     if (parseInt($index)<10) { 
                         $index = $(this).attr('id').slice(-1);
-                        console.log($index)
                     }
                     let inputId = '#hour-index-'+$index;
-                    console.log(inputId)
                     let actionText = $(inputId).val()
                     //console.log(actionText)
                     let inputIdd = '#btn-index-'+$index;
@@ -326,8 +324,6 @@
                     //console.log(opt);
                     var $index2 = parseInt($index)-8;
 
-                    console.log(actionText != "")
-                    console.log(actionText)
                     if (actionText != "") { 
                         planTextArr[$index2] = actionText;
                         planActionArr[$index2] = opt;
@@ -336,9 +332,8 @@
                         planActionArr[$index2] = null
                     }
      
-                    // remove shawdow pulse class
                     colorAction(planActionArr);
-                    localStorage.setItem("plannerDate", JSON.stringify(dateID));
+                    localStorage.setItem("plannerDate", JSON.stringify(todayDate));
                     localStorage.setItem("storedPlans", JSON.stringify(planTextArr));
                     localStorage.setItem("storedActivies", JSON.stringify(planActionArr));
                 });  
@@ -358,8 +353,9 @@
             };
 
             function colorAction(sArray) {
-                    //console.log(statusArray)
+                
                 sArray.forEach(function(item,index) {
+
                     let indexhour = index + 8
                     let inputIdd = '#btn-index-'+ indexhour;
                     let inputId = '#hour-index-'+ indexhour;
@@ -383,7 +379,6 @@
                         $(inputId).removeClass("alert-warning alert-danger alert-primary alert-success");
                         $(inputId).addClass("alert-danger");
                     }
-                    
                     if ( indexhour <  moment().format('H')) {
                             // $hourRow.css('')
                             $(inputId).addClass("alert-dark")
@@ -399,7 +394,7 @@
             //Row for the day letters
             for(var c=0; c<=6; c++){
                 var td = $("<td>");
-                //console.log(td)
+             
                 td.text("SMTWTFS"[c]);
                 tr.append(td);
                 //console.log(tr)
