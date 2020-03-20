@@ -299,15 +299,12 @@
                     $("#hour-index-" + hour).empty();
                     // access index from data array for hour 
                     $("#hour-index-" + hour).val( storedPlans[index] );
-                    console.log($("#hour-index-" + hour).empty());
                 };
-                console.log(actionRegister)
                 colorAction(actionRegister);
                 // onclick function to listen for user clicks on plan area
                 $(document).on('click','.dropdown-menu option', function(event) {
                     event.preventDefault();  
                     let $index = $(this).attr('id').slice(-2);
-                    console.log($index) //16
                     if (parseInt($index)<10) { 
                         $index = $(this).attr('id').slice(-1);
                     }
@@ -333,7 +330,6 @@
             function colorAction(actionStatus) {
                 
                 actionStatus.forEach(function(item,index) {
-                        console.log(actionStatus)
                     let indexhour = index + 8
                     let inputIdd = '#btn-index-'+ indexhour;
                     let inputId = '#hour-index-'+ indexhour;
@@ -358,7 +354,6 @@
                         $(inputId).addClass("alert-danger");
                     }
                     if ( indexhour <  moment().format('H')) {
-                            // $hourRow.css('')
                             $(inputId).addClass("alert-dark")
                             } 
                 });
