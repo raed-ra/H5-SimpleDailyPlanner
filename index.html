@@ -241,8 +241,8 @@
         
         // end - clock on the side bar 
         
-        window.onload = function(){
-        //$(document).ready(function() { 
+        //window.onload = function(){
+        $(document).ready(function() { 
             var d = moment();
             var date = d.format("MMMM Do YYYY");
             var month_name = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -294,11 +294,11 @@
                 // build calendar by row for fix set of hours
                 for (let hour = 8; hour <= 16; hour++) {
                     // index for array use offset from hour
-                    let index = hour - 8
+                    let index = hour - 8;
                     // clear existing elements
                     $("#hour-index-" + hour).empty();
                     // access index from data array for hour 
-                    $("#hour-index-" + hour).val( storedPlans[index] );
+                    $("#hour-index-" + hour).val(storedPlans[index]);
                 };
                 colorAction(actionRegister);
                 // onclick function to listen for user clicks on plan area
