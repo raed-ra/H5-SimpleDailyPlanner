@@ -241,7 +241,6 @@
         
         // end - clock on the side bar 
         
-        
         window.onload = function(){
         //$(document).ready(function() { 
             var d = moment();
@@ -284,18 +283,13 @@
                 let registeredtodayDate = JSON.parse(localStorage.getItem("plannerDate"));
                 console.log(registeredtodayDate == todayDate)
                 if (registeredtodayDate == todayDate) { 
-                    console.log("1")
                     storedPlans = JSON.parse(localStorage.getItem("storedPlans"));
                     actionRegister = JSON.parse(localStorage.getItem("storedActivies"));
                     console.log({storedPlans})
                     console.log({actionRegister})
-                } 
-                // else {
-                //     console.log("2")
-                //     let storedPlans = new Array(9).fill(null);
-                //     storedPlans[5] = "Recommended! Picnic lunch outside (lunch is important!)";
-                //     let actionRegister = new Array(9).fill(null);
-                // }
+                } else {
+                    storedPlans[5] = "Recommended! Picnic lunch outside (lunch is important!)";
+                }
                 console.log({storedPlans})
                 // build calendar by row for fix set of hours
                 for (let hour = 8; hour <= 16; hour++) {
