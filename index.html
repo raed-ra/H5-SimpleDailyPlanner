@@ -17,11 +17,8 @@
 
 <!--Navbar Start-->
 <nav class="container-fluid bg-RP">
-  <div class="navbar container mb-3 navbar-expand-lg navbar-dark bg-RP">
-  
-      <a class="navbar-brand" href="index.html">RIPortfolios</a>
-      
-      
+  <div class="navbar container mb-3 navbar-expand-lg navbar-dark bg-RP"> 
+      <a class="navbar-brand" href="index.html">RIPortfolios</a>  
       <button 
           class="navbar-toggler" 
           type="button" 
@@ -32,9 +29,6 @@
           aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
-  
-
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       
           <form class="form-inline my-2 my-lg-0">
@@ -270,6 +264,8 @@
             //console.log(dayOfmonth);
             let firstdayOfmonth = dayOfmonth%7- 1 - day_no
             var calendar = get_calendar(firstdayOfmonth, days, dayOfmonth);
+            let storedPlans = new Array(9).fill(null)
+            let actionRegister = new Array(9).fill(null)
             $('#calendar-month-year').text(month_name[month]+" "+year);
             $('#calendar-dates').append(calendar);
             $('#date').append(date);
@@ -280,24 +276,27 @@
 
                 let nowHour24 = moment().format('H');
                 let nowHour12 = moment().format('h');
-                let storedPlans 
-                let actionRegister 
+
                 //const saveIcon = "./images/save-regular.svg"; 
 
                 // Get stored todos from localStorage
                 // Parsing the JSON string to an object
                 let registeredtodayDate = JSON.parse(localStorage.getItem("plannerDate"));
-
-                if (registeredtodayDate == todayDate && storedPlans!=null && actionRegister!=null) { 
+                console.log(registeredtodayDate == todayDate)
+                if (registeredtodayDate == todayDate) { 
+                    console.log("1")
                     storedPlans = JSON.parse(localStorage.getItem("storedPlans"));
                     actionRegister = JSON.parse(localStorage.getItem("storedActivies"));
-                } else {
-                    storedPlans = new Array(9).fill(null);
-                    storedPlans[5] = "Recommended! Picnic lunch outside (lunch is important!)";
-                    actionRegister = new Array(9).fill(null);
-                }
-    
-         
+                    console.log({storedPlans})
+                    console.log({actionRegister})
+                } 
+                // else {
+                //     console.log("2")
+                //     let storedPlans = new Array(9).fill(null);
+                //     storedPlans[5] = "Recommended! Picnic lunch outside (lunch is important!)";
+                //     let actionRegister = new Array(9).fill(null);
+                // }
+                console.log({storedPlans})
                 // build calendar by row for fix set of hours
                 for (let hour = 8; hour <= 16; hour++) {
                     // index for array use offset from hour
@@ -306,14 +305,13 @@
                     $("#hour-index-" + hour).empty();
                     // access index from data array for hour 
                     $("#hour-index-" + hour).val( storedPlans[index] );
+                    console.log($("#hour-index-" + hour).empty());
                 };
-       
+                console.log(actionRegister)
                 colorAction(actionRegister);
                 // onclick function to listen for user clicks on plan area
                 $(document).on('click','.dropdown-menu option', function(event) {
                     event.preventDefault();  
-                    let planTextArr = new Array(9).fill(null);
-                    let planActionArr = new Array(9).fill(null);
                     let $index = $(this).attr('id').slice(-2);
                     console.log($index) //16
                     if (parseInt($index)<10) { 
@@ -321,44 +319,27 @@
                     }
                     let inputId = '#hour-index-'+$index;
                     let actionText = $(inputId).val()
-                    //console.log(actionText)
                     let inputIdd = '#btn-index-'+$index;
                     var opt = $(this)[0].value; //chooses between 1,2,3 depending on what action chosen
-                    //console.log(opt);
                     var $index2 = parseInt($index)-8;
 
                     if (actionText != "") { 
-                        planTextArr[$index2] = actionText;
-                        planActionArr[$index2] = opt;
-                    } else {
-                        planTextArr[$index2] = null
-                        planActionArr[$index2] = null
-                    }
-     
-                    colorAction(planActionArr);
+                        storedPlans[$index2] = actionText;
+                        actionRegister[$index2] = opt;
+                    } 
+
+                    colorAction(actionRegister);
                     localStorage.setItem("plannerDate", JSON.stringify(todayDate));
-                    localStorage.setItem("storedPlans", JSON.stringify(planTextArr));
-                    localStorage.setItem("storedActivies", JSON.stringify(planActionArr));
+                    localStorage.setItem("storedPlans", JSON.stringify(storedPlans));
+                    localStorage.setItem("storedActivies", JSON.stringify(actionRegister));
                 });  
-              
-                // function to color save button on change of input
-                $(document).on('change','input', function(event) {
-                    event.preventDefault();  
-                    // neeed to check for save button
-
-                    let i = $(this).attr('hour-index');
-
-                    // add shawdow pulse class
-                    $(`#saveid-${i}`).addClass('shadowPulse');
-
-                });
 
             };
 
-            function colorAction(sArray) {
+            function colorAction(actionStatus) {
                 
-                sArray.forEach(function(item,index) {
-
+                actionStatus.forEach(function(item,index) {
+                        console.log(actionStatus)
                     let indexhour = index + 8
                     let inputIdd = '#btn-index-'+ indexhour;
                     let inputId = '#hour-index-'+ indexhour;
@@ -451,8 +432,6 @@
             
             return table;
          }
-    
-        
           </script>
         </main>
     </div>
