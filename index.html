@@ -241,8 +241,8 @@
         
         // end - clock on the side bar 
         
-        //window.onload = function(){
-        $(document).ready(function() { 
+        window.onload = function(){
+        //$(document).ready(function() { 
             var d = moment();
             var date = d.format("MMMM Do YYYY");
             var month_name = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -290,7 +290,7 @@
                 } else {
                     storedPlans[5] = "Recommended! Picnic lunch outside (lunch is important!)";
                 }
-                console.log({storedPlans})
+                console.log(storedPlans[2])
                 // build calendar by row for fix set of hours
                 for (let hour = 8; hour <= 16; hour++) {
                     // index for array use offset from hour
