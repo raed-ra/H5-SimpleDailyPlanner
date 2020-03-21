@@ -260,8 +260,7 @@
             var day_no = day_name.indexOf(first_day);   //gives the index of current day in the array 
             var days = d.daysInMonth();    //number of days in the current month i.e. 30
             var dayOfmonth = d.format("DD");
-            //console.log(dayOfmonth);
-            let firstdayOfmonth = dayOfmonth%7- 1 - day_no
+            var firstdayOfmonth = day_name.indexOf(d.startOf("month").format("ddd"))
             var calendar = get_calendar(firstdayOfmonth, days, dayOfmonth);
             let storedPlans = new Array(9).fill(null)
             let actionRegister = new Array(9).fill(null)
@@ -271,25 +270,31 @@
             // Navbar End
 
                 // get times from moment
-                const now = moment().format('MMMM Do YYYY');
-
+                const now = moment().format('MMMM Do YYYY')
                 let nowHour24 = moment().format('H');
                 let nowHour12 = moment().format('h');
 
-                //const saveIcon = "./images/save-regular.svg"; 
-
                 // Get stored todos from localStorage
                 // Parsing the JSON string to an object
+                
                 let registeredtodayDate = JSON.parse(localStorage.getItem("plannerDate"));
-                console.log(registeredtodayDate == todayDate)
                 if (registeredtodayDate == todayDate) { 
                     storedPlans = JSON.parse(localStorage.getItem("storedPlans"));
                     actionRegister = JSON.parse(localStorage.getItem("storedActivies"));
-                    console.log({storedPlans})
-                    console.log({actionRegister})
+
                 } else {
                     storedPlans[5] = "Recommended! Picnic lunch outside (lunch is important!)";
                 }
+
+                // storedPlansObj = JSON.parse(localStorage.getItem("storedPlans")); //added
+                // storedPlans = storedPlansObj[todayDate] //added
+                // actionRegisterObj = JSON.parse(localStorage.getItem("storedActivies")); //added
+                // actionRegister = actionRegisterObj[todayDate]  //added
+                // console.log({actionRegisterObj}) //added
+                // console.log({storedPlansObj}) //added
+                // console.log({actionRegister}) //added
+                // console.log({storedPlans}) //added
+
                 // build calendar by row for fix set of hours
                 for (let hour = 8; hour <= 16; hour++) {
                     // index for array use offset from hour
@@ -319,6 +324,19 @@
                     } 
 
                     colorAction(actionRegister);
+
+                    // console.log(parseInt(dayOfmonth))  //added
+                    // console.log(storedPlans) //added
+                    // //let storedPlansObj[dayOfmonth] = storedPlans;//added
+                    // let actionRegisterObj = []//added
+                    // let storedPlansObj = []//added
+                    // actionRegisterObj[dayOfmonth]=actionRegister;//added
+                    // storedPlansObj[dayOfmonth]=storedPlans; //added
+                    // //console.log(storedPlansObj)//added 
+                    // console.log(actionRegisterObj)//added
+                    // localStorage.setItem("storedPlansObj", JSON.stringify(storedPlansObj));//added
+                    // localStorage.setItem("storedActiviesObj", JSON.stringify(actionRegisterObj));//added
+                    
                     localStorage.setItem("plannerDate", JSON.stringify(todayDate));
                     localStorage.setItem("storedPlans", JSON.stringify(storedPlans));
                     localStorage.setItem("storedActivies", JSON.stringify(actionRegister));
